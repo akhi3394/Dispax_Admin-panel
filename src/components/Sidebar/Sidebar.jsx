@@ -16,25 +16,25 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-[260px] bg-[#4100B4] p-5 flex flex-col justify-between">
+    <div className="fixed top-0 left-0 w-[248px] z-10 h-[838px] bg-[#4100B4] flex flex-col justify-between">
       {/* Center the logo */}
-      <div className="flex justify-center mt-6 mb-8">
+      <div className="flex justify-center mt-12">
         <img src="/LogoDispax.png" alt="Dispax Logo" className="w-[144px] h-[54px]" />
       </div>
 
       {/* Navigation */}
-      <ul className="list-none p-0">
+      <ul className="list-none p-0 m-0 ">
         {navItems.map(item => (
-          <li key={item.path} className="flex justify-center mb-2">
+          <li key={item.path} className="flex justify-center mb-2 ">
             <Link
               to={item.path}
-              className={`w-[220px] flex items-center gap-3 p-4 rounded transition-all duration-200 ${
+              className={`w-[240px] flex items-center text-[16px] font-medium gap-[32px]  p-4 rounded transition-all duration-200 ${
                 location.pathname === item.path
-                  ? 'bg-white text-[#000] font-medium'
+                  ? 'bg-white text-[#000] font-medium rounded-[8px]'
                   : 'text-white'
               }`}
             >
-              <img src={`/${item.icon}`} alt={`${item.label} icon`} className="w-5 h-5" />
+              <img src={`/${item.icon}`} alt={`${item.label} icon`} className="w-[24px] h-[24px]" />
               <span className="text-[16px]">{item.label}</span>
             </Link>
           </li>
@@ -42,13 +42,15 @@ const Sidebar = () => {
       </ul>
 
       {/* Logout */}
-      <Link
+      <div className="w-[248px]">
+        <Link
         to="/login"
-        className="border border-white text-white text-center py-2 rounded w-full mt-4 flex items-center gap-5 mx-3"
+        className="w-[240px] h-[48px] text-[16px] font-medium gap-[32px] border border-[#FFC1C1] text-[#FFC1C1] text-center py-2 rounded-[8px] mb-9 flex items-center "
       >
-         <img src='sidebaricons/logout.svg' alt='logout' className="w-5 h-5" />
+         <img src='sidebaricons/logout.svg' alt='logout' className="w-[24px] h-[24px]" />
         Logout
       </Link>
+      </div>
     </div>
   );
 };

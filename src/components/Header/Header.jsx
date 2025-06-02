@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
+import LanguageDropdown from './LanguageDropdown';
 
 const Header = () => {
   return (
-    <div className="flex items-center bg-[#4100B4] w-full h-[98px] px-6 gap-[150px]">
+    <div className="fixed top-0 left-[248px] z-10 right-0 h-[98px] bg-[#4100B4] px-8 flex items-center justify-between">
+      
       {/* Search */}
-      <div className="relative min-w-[388px] h-[38px]">
+      <div className="relative w-[388px] h-[38px]">
         <input
           type="text"
           placeholder="Search by Company, Driver, or Order Number"
-          className="w-full h-full pl-4 pr-10 rounded-full text-sm text-black placeholder-gray-500 focus:outline-none"
+          className="w-full h-full pl-4 pr-10 rounded-full text-[14px] text-black placeholder:text-[#202224] focus:outline-none"
         />
-        <div className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer">
+        <div className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#202224]">
           {/* Search Icon */}
           <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.8">
@@ -36,7 +38,7 @@ const Header = () => {
       </div>
 
       {/* Notification */}
-      <div className="relative min-w-[30px] h-[31.5px] flex items-center justify-center">
+      <div className="relative w-[32px] h-[32px] flex items-center justify-center">
         <svg width="30" height="32" viewBox="0 0 30 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.5 19.75C23.3284 19.75 24 20.4216 24 21.25V22.75C24 23.5784 23.3284 24.25 22.5 24.25H1.5C0.671573 24.25 2.41598e-08 23.5784 0 22.75V21.25C0 20.4216 0.671573 19.75 1.5 19.75H4.5L5.55566 10.2529C5.80895 7.97419 7.73459 6.25017 10.0273 6.25H13.9727C16.2654 6.25017 18.1911 7.97419 18.4443 10.2529L19.5 19.75H22.5Z" fill="#4880FF"/>
           <rect opacity="0.9" x="9" y="25.75" width="6" height="6" rx="2.25" fill="white"/>
@@ -46,21 +48,18 @@ const Header = () => {
       </div>
 
       {/* Language Dropdown */}
-      <select className="min-w-[123px] h-[27px] rounded bg-transparent text-white border border-white px-2 text-sm">
-        <option className="text-black">English</option>
-        <option className="text-black">Hindi</option>
-      </select>
+     <LanguageDropdown/>
 
       {/* Profile */}
-      <div className="flex items-center gap-2 w-[203px] h-[44px] ml-auto">
+      <div className="flex items-center gap-2 w-[203px] h-[44px]">
         <img
           src="https://via.placeholder.com/44"
           alt="Admin"
           className="w-[44px] h-[44px] rounded-full object-cover"
         />
         <div className="text-white text-sm leading-tight">
-          <div className="font-semibold">Admin Name</div>
-          <div className="text-xs">Admin</div>
+          <div className="font-bold text-[14px]">Admin Name</div>
+          <div className="text-[12px] font-semibold">Admin</div>
         </div>
       </div>
     </div>
