@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import LanguageDropdown from './LanguageDropdown';
+import NotificationDropdown from './NotificationDropdown';
+import ProfileDropdown from './ProfileDropdown';
 
 const Header = () => {
   return (
@@ -38,30 +40,14 @@ const Header = () => {
       </div>
 
       {/* Notification */}
-      <div className="relative w-[32px] h-[32px] flex items-center justify-center">
-        <svg width="30" height="32" viewBox="0 0 30 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22.5 19.75C23.3284 19.75 24 20.4216 24 21.25V22.75C24 23.5784 23.3284 24.25 22.5 24.25H1.5C0.671573 24.25 2.41598e-08 23.5784 0 22.75V21.25C0 20.4216 0.671573 19.75 1.5 19.75H4.5L5.55566 10.2529C5.80895 7.97419 7.73459 6.25017 10.0273 6.25H13.9727C16.2654 6.25017 18.1911 7.97419 18.4443 10.2529L19.5 19.75H22.5Z" fill="#4880FF"/>
-          <rect opacity="0.9" x="9" y="25.75" width="6" height="6" rx="2.25" fill="white"/>
-          <path opacity="0.173224" fillRule="evenodd" clipRule="evenodd" d="M21 18.25C25.9706 18.25 30 14.2206 30 9.25C30 4.27944 25.9706 0.25 21 0.25C16.0294 0.25 12 4.27944 12 9.25C12 14.2206 16.0294 18.25 21 18.25Z" fill="#FF4F4F" fillOpacity="0.6"/>
-        </svg>
-        <span className="absolute -top-1 -right-1 text-white text-xs bg-red-500 rounded-full px-1">6</span>
-      </div>
+      <NotificationDropdown/>
+    
 
       {/* Language Dropdown */}
      <LanguageDropdown/>
 
       {/* Profile */}
-      <div className="flex items-center gap-2 w-[203px] h-[44px]">
-        <img
-          src="https://via.placeholder.com/44"
-          alt="Admin"
-          className="w-[44px] h-[44px] rounded-full object-cover"
-        />
-        <div className="text-white text-sm leading-tight">
-          <div className="font-bold text-[14px]">Admin Name</div>
-          <div className="text-[12px] font-semibold">Admin</div>
-        </div>
-      </div>
+     <ProfileDropdown />
     </div>
   );
 };
