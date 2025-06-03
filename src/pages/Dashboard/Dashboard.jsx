@@ -1,5 +1,6 @@
 import ActiveTrucks from "./ActiveTrucks";
 import DashboardWidgets from "./dashboardGraphs";
+import LiveTrackingMap from "./LiveTrackingMap";
 
 const Dashboard = () => {
   return (
@@ -55,7 +56,7 @@ const Dashboard = () => {
       </div>
       <DashboardWidgets />
       <ActiveTrucks/>
-
+      <LiveTrackingMap/> 
     </div>
   );
 };
