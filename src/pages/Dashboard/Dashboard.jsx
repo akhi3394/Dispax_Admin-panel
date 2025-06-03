@@ -1,3 +1,5 @@
+import DashboardWidgets from "./dashboardGraphs";
+
 const Dashboard = () => {
   return (
     <div className="flex flex-col gap-5 w-full relative p-6 text-white">
@@ -50,22 +52,7 @@ const Dashboard = () => {
           <img src="/dashboardicons/revenue.svg" alt="Revenue" className="w-[62px] h-[62px]" />
         </div>
       </div>
-
-
-
-      <div className="flex gap-5">
-        <div className="bg-sidebar-header-bg p-5 rounded-lg flex-1">
-          <h3 className="text-lg mb-2">Activity Overview</h3>
-          <p className="text-sm mb-5">Shipment and Deliveries over time</p>
-          <div className="h-48 bg-gray-700 flex items-center justify-center rounded">Graph Placeholder</div>
-        </div>
-        <div className="bg-sidebar-header-bg p-5 rounded-lg flex-1">
-          <h3 className="text-lg mb-2">Order Overview</h3>
-          <p className="text-sm mb-5">Revenue: $45,895</p>
-          <div className="h-48 bg-gray-700 flex items-center justify-center rounded">Graph Placeholder</div>
-        </div>
-      </div>
-
+      <DashboardWidgets />
 
     </div>
   );
