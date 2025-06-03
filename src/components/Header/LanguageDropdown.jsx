@@ -10,7 +10,7 @@ const LanguageDropdown = () => {
     <div className="relative inline-block text-left font-bold text-[15px]">
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="cursor-pointer flex items-center justify-between w-[150px] px-4 py-2 text-white rounded-full text-[14px] font-semibold"
+        className="cursor-pointer flex items-center justify-between w-[150px] px-10 py-2 text-white rounded-full text-[14px] font-semibold"
 
       >
         {selectedLanguage}

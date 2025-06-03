@@ -18,7 +18,7 @@ const Sidebar = () => {
   return (
     <div className="fixed top-0 left-0 w-[248px] z-10 h-[838px] bg-[#4100B4] flex flex-col justify-between">
       {/* Center the logo */}
-      <div className="flex justify-center mt-12">
+      <div className="flex justify-center mt-10">
         <img src="/LogoDispax.png" alt="Dispax Logo" className="w-[144px] h-[54px]" />
       </div>
 
@@ -45,9 +45,9 @@ const Sidebar = () => {
       <div className="w-[248px]">
         <Link
         to="/login"
-        className="w-[240px] h-[48px] text-[16px] font-medium gap-[32px] border border-[#FFC1C1] text-[#FFC1C1] text-center py-2 rounded-[8px] mb-9 flex items-center "
+        className="w-[240px] h-[48px] text-[16px] font-medium gap-[32px] border border-[#FFC1C1] text-[#FFC1C1] text-center py-2 rounded-[8px] lg:mb-24 xl:mb-20 flex items-center "
       >
-         <img src='sidebaricons/logout.svg' alt='logout' className="w-[24px] h-[24px]" />
+         <img src='sidebaricons/logout.svg' alt='logout' className="w-[24px] h-[24px] ml-5" />
         Logout
       </Link>
       </div>
