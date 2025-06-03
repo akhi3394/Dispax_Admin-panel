@@ -35,7 +35,7 @@ const revenueData = [
 
 const DashboardWidgets = () => {
   return (
-    <div className="min-h-screen text-white">
+    <div className=" text-white">
       <div className="grid xl:grid-cols-[2fr_1fr] gap-6">
         {/* LEFT COLUMN */}
         <div className="flex flex-col gap-6">

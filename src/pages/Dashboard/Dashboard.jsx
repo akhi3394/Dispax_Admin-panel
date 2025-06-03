@@ -1,3 +1,4 @@
+import ActiveTrucks from "./ActiveTrucks";
 import DashboardWidgets from "./dashboardGraphs";
 
 const Dashboard = () => {
@@ -53,6 +54,7 @@ const Dashboard = () => {
         </div>
       </div>
       <DashboardWidgets />
+      <ActiveTrucks/>
 
     </div>
   );
