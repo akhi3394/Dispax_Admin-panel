@@ -1,21 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
+import ActiveCompany from './components/Dashboard/ActiveCompany';
+import ActiveDrivers from './components/Dashboard/ActiveDrivers';
+import ActiveTrucksData from './components/Dashboard/ActiveTrucks';
+import OrderStatus from './components/Dashboard/OrderStatus';
+import Revenue from './components/Dashboard/Revenue';
+import TotalShipments from './components/Dashboard/TotalShipments';
 import Layout from './components/Layout/Layout';
+import Customization from './pages/Customization/Customization';
 import Dashboard from './pages/Dashboard/Dashboard';
+import InvoicePayment from './pages/InvoicePayment/InvoicePayment';
 import Login from './pages/Login/Login';
-import Signup from './pages/Signup/Signup';
-import ResetPassword from './pages/ResetPassword/ResetPassword';
 import ManageCompany from './pages/ManageCompany/ManageCompany';
 import OrderShipping from './pages/OrderShipping/OrderShipping';
-import InvoicePayment from './pages/InvoicePayment/InvoicePayment';
 import ReportsData from './pages/ReportsData/ReportsData';
-import Customization from './pages/Customization/Customization';
-import UserRole from './pages/UserRole/UserRole';
-import Support from './pages/Support/Support';
+import ResetPassword from './pages/ResetPassword/ResetPassword';
 import Security from './pages/Security/Security';
-import { Provider } from 'react-redux';
+import Signup from './pages/Signup/Signup';
+import Support from './pages/Support/Support';
+import UserRole from './pages/UserRole/UserRole';
 import store from './redux/store';
-import ActiveCompany from './components/Dashboard/ActiveCompany';
 
 function App() {
   return (
@@ -45,7 +50,12 @@ function App() {
               <Route path="/user-role" element={<UserRole />} />
               <Route path="/support" element={<Support />} />
               <Route path="/security" element={<Security />} />
-              <Route path="/dashboard/active-company" element={<ActiveCompany/>} /> 
+              <Route path="/dashboard/active-company" element={<ActiveCompany />} />
+              <Route path="/dashboard/total-shipments" element={<TotalShipments />} />
+              <Route path="/dashboard/active-trucks" element={<ActiveTrucksData />} />
+              <Route path="/dashboard/active-drivers" element={<ActiveDrivers />} />
+              <Route path="/dashboard/order-status" element={<OrderStatus />} />
+              <Route path="/dashboard/revenue" element={<Revenue />} />
             </Route>
           </Routes>
         </div>
