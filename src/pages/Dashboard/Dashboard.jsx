@@ -1,12 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import ActiveTrucks from "./ActiveTrucks";
 import DashboardWidgets from "./dashboardGraphs";
 import LiveTrackingMap from "./LiveTrackingMap";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col gap-5 w-full relative p-6 text-white">
       <div className="grid grid-cols-3 gap-[10px]">
-        <div className="bg-[linear-gradient(167.8deg,_#4100B4_0.5%,_#1C004E_99.5%)] border border-[#1C1889] rounded-lg w-full h-[146px] flex items-center justify-between px-5">
+        <div className="bg-[linear-gradient(167.8deg,_#4100B4_0.5%,_#1C004E_99.5%)] border border-[#1C1889] rounded-lg w-full h-[146px] flex items-center justify-between px-5 cursor-pointer"
+        onClick={()=>navigate('/dashboard/active-company')}>
           <div>
             <h3 className="text-[20px] font-medium text-[#BFBFBF] mb-1">Active Company</h3>
             <p className="text-[32px] font-semibold text-white">18</p>

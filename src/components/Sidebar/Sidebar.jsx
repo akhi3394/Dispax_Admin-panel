@@ -28,11 +28,11 @@ const Sidebar = () => {
           <li key={item.path} className="flex justify-center mb-2 ">
             <Link
               to={item.path}
-              className={`w-[240px] flex items-center text-[16px] font-medium gap-[32px]  p-4 rounded transition-all duration-200 ${
-                location.pathname === item.path
+              className={`w-[240px] flex items-center text-[16px] font-medium gap-[32px] p-4 rounded transition-all duration-200 ${location.pathname === item.path || location.pathname.startsWith(item.path + '/')
                   ? 'bg-white text-[#000] font-medium rounded-[8px]'
                   : 'text-white'
-              }`}
+                }`}
+
             >
               <img src={`/${item.icon}`} alt={`${item.label} icon`} className="w-[24px] h-[24px]" />
               <span className="text-[16px]">{item.label}</span>
@@ -44,12 +44,12 @@ const Sidebar = () => {
       {/* Logout */}
       <div className="w-[248px]">
         <Link
-        to="/login"
-        className="w-[240px] h-[48px] text-[16px] font-medium gap-[32px] border border-[#FFC1C1] text-[#FFC1C1] text-center py-2 rounded-[8px] lg:mb-24 xl:mb-20 flex items-center "
-      >
-         <img src='sidebaricons/logout.svg' alt='logout' className="w-[24px] h-[24px] ml-5" />
-        Logout
-      </Link>
+          to="/login"
+          className="w-[240px] h-[48px] text-[16px] font-medium gap-[32px] border border-[#FFC1C1] text-[#FFC1C1] text-center py-2 rounded-[8px] lg:mb-24 xl:mb-20 flex items-center "
+        >
+          <img src='sidebaricons/logout.svg' alt='logout' className="w-[24px] h-[24px] ml-5" />
+          Logout
+        </Link>
       </div>
     </div>
   );
