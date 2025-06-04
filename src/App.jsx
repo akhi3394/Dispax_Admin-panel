@@ -15,6 +15,7 @@ import Support from './pages/Support/Support';
 import Security from './pages/Security/Security';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import ActiveCompany from './components/Dashboard/ActiveCompany';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <Route path="/user-role" element={<UserRole />} />
               <Route path="/support" element={<Support />} />
               <Route path="/security" element={<Security />} />
+              <Route path="/dashboard/active-company" element={<ActiveCompany/>} /> 
             </Route>
           </Routes>
         </div>
