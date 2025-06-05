@@ -11,7 +11,7 @@ const CustomTable = ({
     <div className={`w-full rounded-xl ${className}`}>
       {/* Scroll wrapper constrained to parent width */}
       <div className="relative w-full overflow-x-auto">
-        <table className="w-full text-white text-sm border-collapse table-fixed">
+        <table className="w-full text-white text-sm border-collapse rounded-t-[10px] table-fixed">
           <thead className="sticky top-0 z-1">
             <tr className="bg-[#131060] h-14 text-left">
               {columns.map((col, i) => (
