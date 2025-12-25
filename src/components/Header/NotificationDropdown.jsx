@@ -20,11 +20,8 @@ const NotificationDropdown = () => {
       <div className="relative z-20">
         {/* Notification Icon */}
         <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer relative flex justify-center">
-          <svg width="30" height="32" viewBox="0 0 30 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 2C9.477 2 5 6.477 5 12V17C5 18.3261 4.47321 19.5979 3.53553 20.5355L2 22H28L26.4645 20.5355C25.5268 19.5979 25 18.3261 25 17V12C25 6.477 20.523 2 15 2Z" fill="#fff" />
-            <circle cx="15" cy="27" r="3" fill="#fff" />
-          </svg>
-          <span className="absolute -top-1 -right-1 text-white text-xs bg-red-500 rounded-full px-1">3</span>
+          <img src="/headericons/notification.svg" alt="" />
+          <span className="absolute -top-1 -right-1 text-white text-xs bg-red-500 rounded-full px-1">6</span>
         </div>
 
         {isOpen && (

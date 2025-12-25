@@ -4,15 +4,15 @@ const Sidebar = () => {
   const location = useLocation();
 
   const navItems = [
-    { label: 'Dashboard', path: '/dashboard', icon: 'sidebaricons/dashboard.svg' },
-    { label: 'Manage Company', path: '/manage-company', icon: 'sidebaricons/managecompanysvg.svg' },
-    { label: 'Order & Shipping', path: '/order-shipping', icon: 'sidebaricons/orderandshimpment.svg' },
-    { label: 'Invoice & Payment', path: '/invoice-payment', icon: 'sidebaricons/invoice.svg' },
-    { label: 'Reports & Data', path: '/reports-data', icon: 'sidebaricons/reportsanddata.svg' },
-    { label: 'Customization', path: '/customization', icon: 'sidebaricons/customization.svg' },
-    { label: 'User & Role', path: '/user-role', icon: 'sidebaricons/userandrole.svg' },
-    { label: 'Support', path: '/support', icon: 'sidebaricons/support.svg' },
-    { label: 'Security', path: '/security', icon: 'sidebaricons/security.svg' }
+    { label: 'Dashboard', path: '/dashboard', activeIcon: 'sidebaricons/dashboard.svg', icon: 'sidebaricons/inactiveDashboard.svg' },
+    { label: 'Manage Company', path: '/manage-company', icon: 'sidebaricons/managecompanysvg.svg', activeIcon: 'sidebaricons/activemanagecompany.svg' },
+    { label: 'Order & Shipping', path: '/order-shipping', icon: 'sidebaricons/orderandshimpment.svg', activeIcon: 'sidebaricons/activeorderandshipment.svg' },
+    { label: 'Invoice & Payment', path: '/invoice-payment', icon: 'sidebaricons/invoice.svg', activeIcon: 'sidebaricons/activeinvoice.svg' },
+    { label: 'Reports & Data', path: '/reports-data', icon: 'sidebaricons/reportsanddata.svg', activeIcon: 'sidebaricons/activeReports.svg' },
+    { label: 'Customization', path: '/customization', icon: 'sidebaricons/customization.svg', activeIcon: 'sidebaricons/activeCustomisation.svg' },
+    { label: 'User & Role', path: '/user-role', icon: 'sidebaricons/userandrole.svg', activeIcon: 'sidebaricons/activeUserandRole.svg' },
+    { label: 'Support', path: '/support', icon: 'sidebaricons/support.svg', activeIcon: 'sidebaricons/activeSupport.svg' },
+    { label: 'Security', path: '/security', icon: 'sidebaricons/security.svg', activeIcon: 'sidebaricons/activeSecurity.svg' }
   ];
 
   return (
@@ -28,13 +28,21 @@ const Sidebar = () => {
           <li key={item.path} className="flex justify-center mb-2 ">
             <Link
               to={item.path}
-              className={`w-[240px] flex items-center text-[16px] font-medium gap-[32px] p-4 rounded transition-all duration-200 ${location.pathname === item.path || location.pathname.startsWith(item.path + '/')
-                  ? 'bg-white text-[#000] font-medium rounded-[8px]'
-                  : 'text-white'
+              className={`w-[240px] flex items-center text-[16px] font-medium gap-[18px] p-4 rounded transition-all duration-200 ${location.pathname === item.path || location.pathname.startsWith(item.path + '/')
+                ? 'bg-white text-[#000] font-medium rounded-[8px]'
+                : 'text-white'
                 }`}
 
             >
-              <img src={`/${item.icon}`} alt={`${item.label} icon`} className="w-[24px] h-[24px]" />
+              <img
+                src={
+                  location.pathname === item.path || location.pathname.startsWith(item.path + '/')
+                    ? `/${item.activeIcon}`
+                    : `/${item.icon}`
+                }
+                alt={`${item.label} icon`}
+                className="w-[24px] h-[24px]"
+              />
               <span className="text-[16px]">{item.label}</span>
             </Link>
           </li>

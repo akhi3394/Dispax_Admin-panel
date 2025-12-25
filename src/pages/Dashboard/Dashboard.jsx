@@ -7,7 +7,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col gap-5 w-full relative p-6 text-white">
+    <div className="flex flex-col gap-5 w-full relative pt-8  text-white">
       <div className="grid grid-cols-3 gap-[10px] cursor-pointer">
         <div
           className="bg-[linear-gradient(167.8deg,_#4100B4_0.5%,_#1C004E_99.5%)] border border-[#1C1889] rounded-lg w-full h-[146px] flex items-center justify-between px-5"

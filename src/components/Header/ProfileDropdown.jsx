@@ -70,9 +70,9 @@ const ProfileDropdown = () => {
           <div
             className="relative w-[630px] h-[735px] rounded-lg shadow-2xl px-10 py-12"
             style={{
-              background: "radial-gradient(50% 49.39% at 50% 50%, #1D2461 0%, #080625 100%)",
-              boxShadow: "0px 4px 40px 0px #FFFFFF40",
-            }}
+            background: 'radial-gradient(50% 50% at 50% 50%, #1D2461 0%, #080625 100%)'
+          }}
+
           >
             <button
               className="absolute top-4 right-4 text-white text-xl font-bold"

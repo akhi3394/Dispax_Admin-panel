@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import ActiveCompany from './components/Dashboard/ActiveCompany';
 import ActiveDrivers from './components/Dashboard/ActiveDrivers';
@@ -21,6 +21,10 @@ import Signup from './pages/Signup/Signup';
 import Support from './pages/Support/Support';
 import UserRole from './pages/UserRole/UserRole';
 import store from './redux/store';
+import CompanyManagement from './components/ManageCompany/CompanyManagement/Index';
+import Performance from './components/ManageCompany/CompanyManagement/Performance';
+import ActivityLogs from './components/ManageCompany/CompanyManagement/ActivityLogs';
+import TruckManagement from './components/ManageCompany/TruckManagement/Index';
 
 function App() {
   return (
@@ -28,8 +32,9 @@ function App() {
       <Router>
         <div
           className="min-h-screen w-full"
+          // background: 'radial-gradient(circle at center, #080625 100%, #6F1AFF 0%)',
           style={{
-            background: 'radial-gradient(circle at center, #080625 100%, #6F1AFF 0%)',
+            background: 'radial-gradient(50% 50% at 50% 50%, #1D2461 0%, #080625 100%)'
           }}
         >
           <Routes>
@@ -42,7 +47,14 @@ function App() {
             {/* Routes with Sidebar and Header */}
             <Route element={<Layout />}>
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/manage-company" element={<ManageCompany />} />
+              {/* <Route path="/manage-company" element={<Navigate to="/manage-company" />} /> */}
+
+              <Route path="/manage-company" element={<ManageCompany />}>
+                <Route index element={<CompanyManagement />} />
+                <Route path="/manage-company/performance/:id" element={<Performance />} />
+                <Route path="/manage-company/activity-logs/:id" element={<ActivityLogs />} />
+                <Route path="/manage-company/truck-managment" element={<TruckManagement />} />
+              </Route>
               <Route path="/order-shipping" element={<OrderShipping />} />
               <Route path="/invoice-payment" element={<InvoicePayment />} />
               <Route path="/reports-data" element={<ReportsData />} />

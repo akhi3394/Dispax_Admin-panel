@@ -5,47 +5,35 @@ import { useNavigate } from "react-router-dom";
 import CustomTable from "../../hooks/CustomTable";
 import CustomPagination from "../../hooks/CustomPagination";
 
-const columns = [
-  { header: "Shipment ID", accessor: "id" },
-  { header: "Customer", accessor: "customer" },
-  { header: "Route", accessor: "route" },
-  { header: "Status", accessor: "status" },
-  { header: "Driver/Truck", accessor: "driver" },
-  { header: "Date", accessor: "date" },
-  { header: "Weight", accessor: "weight" },
-  { header: "Action", accessor: "action", isAction: true },
-];
-
-const data = [
-  {
-    id: "SIP #89745564",
-    customer: "John Smith",
-    route: "From Chicago, IL to Newyork, NY",
-    status: (
-      <span className="bg-[#6763F1] px-3 py-1 rounded-full text-white text-sm">
-        In transit
-      </span>
-    ),
-    driver: (
-      <div>
-        <div className="font-semibold">TRK-2548</div>
-        <div className="text-xs">John Smith</div>
-      </div>
-    ),
-    date: (
-      <div className="text-xs">
-        Expected <br /> 2025/05/05
-      </div>
-    ),
-    weight: "5,200 lbs",
-    action: (
-      <span className="text-2xl">
-        {/* SVG icon */}
-      </span>
-    ),
-  },
-];
-
+  const OrderData = [
+    {
+      id: "1",
+      OrderId: "ORD- #458",
+      Company: "Bluedart Logistics",
+      Items: "56",
+      Date: "2025/05/05",
+      Status: "Pending",
+      Total: "$28,596",
+    },
+    {
+      id: "2",
+    OrderId: "ORD- #458",
+      Company: "Bluedart Logistics",
+      Items: "56",
+      Date: "2025/05/05",
+      Status: "Pending",
+      Total: "$28,596",
+    },
+    {
+      id: "3",
+      OrderId: "ORD- #458",
+      Company: "Bluedart Logistics",
+      Items: "56",
+      Date: "2025/05/05",
+      Status: "Completed",
+      Total: "$28,596",
+    },
+  ];
 const OrderStatus = () => {
   const navigate = useNavigate();
   const [selectedTab, setSelectedTab] = useState("Trucks");
@@ -86,14 +74,14 @@ const OrderStatus = () => {
       </div>
 
       {/* Tabs */}
-      <div className="w-full overflow-hidden mb-6 relative h-[52px]">
-        <div className="absolute top-[2px] left-[2px] flex">
+      <div className="w-full overflow-hidden mb-6 ">
+        <div className=" inline-flex bg-[#070539] p-1 rounded-[5px]">
           <div
             onClick={() => setSelectedTab("Trucks")}
             className={`w-[220px] h-[48px]  flex items-center justify-center font-semibold text-[22px] cursor-pointer ${
               selectedTab === "Trucks"
-                ? "bg-[#0A0666] text-white"
-                : "bg-[#0E0C3A] text-white"
+                ? "bg-[#0A0666] text-white rounded-[5px]"
+                : " text-white"
             }`}
           >
             Pending
@@ -103,8 +91,8 @@ const OrderStatus = () => {
             onClick={() => setSelectedTab("Drivers")}
             className={`w-[220px] h-[48px] flex items-center justify-center font-semibold text-[22px] cursor-pointer ${
               selectedTab === "Drivers"
-                ? "bg-[#0A0666] text-white"
-                : "bg-[#0E0C3A] text-[#BFBFBF]"
+                ? "bg-[#0A0666] text-white rounded-[5px]"
+                : " text-[#BFBFBF]"
             }`}
           >
             Completed
@@ -112,9 +100,48 @@ const OrderStatus = () => {
         </div>
       </div>
 
-      {/* Table + Pagination */}
-      <div className="w-full">
-        <CustomTable columns={columns} data={data} renderActions={(row) => row.action} />
+             <div className="overflow-x-auto custom-scrollbar w-full rounded-xl mb-5 shadow-[0px_1.97px_6.47px_0px_#00000005,0px_9px_18.2px_0px_#00000008,0px_22.78px_48.83px_0px_#0000000A,0px_45px_112px_0px_#0000000F]">
+          <table className="min-w-[1200px] table-auto text-left w-full">
+            <thead>
+              <tr className="bg-[#070539] h-[40px] text-white text-sm border-b border-[#fff]">
+                <th className="px-5">Order ID</th>
+                <th className="px-5">Company</th>
+                <th className="px-5">Items</th>
+                <th className="px-5">Date</th>
+                <th className="px-5">Status</th>
+                <th className="px-5">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {OrderData.map((driver, index) => (
+                <tr
+                  key={index}
+                  className={`bg-[#131060] text-white h-[90px] ${index !== OrderData.length - 1 ? 'border-b border-[#fff]' : ''}`}
+                >
+                  <td className="px-5">{driver.OrderId}</td>
+                  <td className="px-5">{driver.Company}</td>
+                  <td className="px-5">{driver.Items}</td>
+                  <td className="px-5">{driver.Date}</td>
+                  <td className="px-5">
+                    <span
+                      className={`text-[#F5F5F5] text-[14px] inline-flex items-center justify-center w-[100px] h-[40px] gap-[10px] rounded-[24px] pt-[6px] pr-[12px] pb-[6px] pl-[12px] ${
+                        driver.Status === 'On Break'
+                          ? 'bg-[#6763F1]'
+                          : driver.Status === 'Completed'
+                          ? 'bg-[#14AE5C]'
+                          : 'bg-[#E8B931]'
+                      }`}
+                    >
+                      {driver.Status}
+                    </span>
+                  </td>
+                  <td className="px-5">{driver.Total}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+          
         <div className="flex justify-between items-center mt-4">
           <p className="text-sm text-white/70">Showing 6 out of 120 results</p>
           <CustomPagination
@@ -122,7 +149,6 @@ const OrderStatus = () => {
             totalPages={totalPages}
             onPageChange={setCurrentPage}
           />
-        </div>
       </div>
     </div>
   );
